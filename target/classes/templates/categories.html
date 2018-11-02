@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head('Posts')"></head>
+<body>
+<div th:replace="fragments/navbar :: myNav"></div>
+<div class="container">
+    <h1>Post Categories</h1>
+    <div th:each="cat : ${cats}">
+        <a th:href="@{/categories/{id}(id=${cat.id})}"><h2 th:text="${cat.name}"></h2></a>
+        <!--<h4 th:text="${cat.posts}"></h4>-->
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head('Create Post')"></head>
+<body>
+<div th:replace="fragments/navbar :: myNav"></div>
+<div class="container">
+<form action="/posts/create" method="post" th:object="${post}">
+    <div class="form-group">
+    <label for="title">Title</label>
+    <input th:field="*{title}" id="title"/>
+    </div>
+    <br />
+    <div class="form-group">
+    <label for="desc">Description</label>
+
+    <input type="textarea" th:field="*{description}" id="desc" />
+    </div>
+    <br />
+    <input type="submit" />
+</form>
+</div>
+</body>
+</html>

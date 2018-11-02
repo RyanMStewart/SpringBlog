@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head('Posts')"></head>
+<body>
+<div th:replace="fragments/navbar :: myNav"></div>
+<div class="container">
+
+    <h1>Welcome to the CodeUp blog</h1>
+    <div th:each="post : ${posts}">
+        <h2 th:text="${post.title}"></h2>
+        <div th:if="${post.categories != null}">
+            <h4>Categories:</h4>
+            <div th:each="cat : ${post.categories}"><p style="display:inline-block" th:text="${cat.name}"/></div>
+        </div>
+        <h4 th:text="${post.description}"></h4>
+        <p th:text="${'Created by: ' + post.user.username}"></p>
+    </div>
+</div>
+</body>
+</html>
