@@ -4,17 +4,26 @@
 <body>
 <div th:replace="fragments/navbar :: myNav"></div>
 <div class="container">
-<form action="/posts/create" method="post" th:object="${post}">
+
+    <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+
     <div class="form-group">
     <label for="title">Title</label>
     <input th:field="*{title}" id="title"/>
     </div>
+
     <br />
+
     <div class="form-group">
     <label for="desc">Description</label>
-
-    <input type="textarea" th:field="*{description}" id="desc" />
+    <input type="text" th:field="*{description}" id="desc" />
     </div>
+
+    <th:block th:each="category : ${categories}">
+        <input type="checkbox" name="categories" th:value="${category.id}"/>
+        <label th:text="${category.name}"></label>
+    </th:block>
+
     <br />
     <input type="submit" />
 </form>

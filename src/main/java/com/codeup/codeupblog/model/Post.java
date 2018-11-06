@@ -83,4 +83,5 @@ public class Post {
     public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
+
 }

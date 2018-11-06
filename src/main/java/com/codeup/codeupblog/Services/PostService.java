@@ -14,15 +14,10 @@ public class PostService {
     public PostService(PostRepo postRepo) {
         this.postRepo = postRepo;
         posts = new ArrayList<>();
-//
-//        posts.add(new Post(1,"My first post", "This is my blog"));
-//        posts.add(new Post(2,"Happy Thursday", "Today is a great day"));
-//        posts.add(new Post(3,"I am excited", "To see if this works"));
     }
 
     public Iterable<Post> all() {
         return posts;
-//        return postRepo.findAll();
     }
 
     public Post create(Post post) {

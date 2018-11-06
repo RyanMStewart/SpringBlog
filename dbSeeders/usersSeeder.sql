@@ -1,0 +1,11 @@
+use adlister_db;
+insert into users (id, username, email, password) values (1, 'smeiklam0', 'mdelleschi0@blogger.com', '5hWbnVfi');
+insert into users (id, username, email, password) values (2, 'twolfindale1', 'cdudliston1@addtoany.com', '5iV2oqC');
+insert into users (id, username, email, password) values (3, 'heyer2', 'sboote2@mit.edu', 'VVtzZ29Vep');
+insert into users (id, username, email, password) values (4, 'bwarin3', 'cattfield3@google.de', 'vpu6G0');
+insert into users (id, username, email, password) values (5, 'vduns4', 'mokroy4@mapy.cz', 'h5mcEBAOnrq');
+insert into users (id, username, email, password) values (6, 'tatkins5', 'ifarrington5@hubpages.com', 'xfB08C');
+insert into users (id, username, email, password) values (7, 'gconrath6', 'gelby6@sourceforge.net', 'W8R8Bj');
+insert into users (id, username, email, password) values (8, 'ctremelling7', 'jrandales7@newsvine.com', 'pFpVakbuGC9q');
+insert into users (id, username, email, password) values (9, 'kworgan8', 'vlissemore8@nhs.uk', 'm9WncS');
+insert into users (id, username, email, password) values (10, 'bmcfaell9', 'mheningham9@boston.com', 'afbW0Y5o1HvJ');

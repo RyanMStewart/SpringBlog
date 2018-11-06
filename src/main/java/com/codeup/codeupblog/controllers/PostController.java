@@ -8,12 +8,10 @@ import com.codeup.codeupblog.model.Post;
 import com.codeup.codeupblog.Services.PostService;
 import com.codeup.codeupblog.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,13 +37,15 @@ public class PostController {
     @GetMapping("/posts/create")
     public String createPostForm(Model model) {
         model.addAttribute("post", new Post());
+        model.addAttribute("categories", categoryRepo.findAll());
         return "create";
     }
 
     @PostMapping("/posts/create")
-    public String create(@ModelAttribute Post post) {
-        post.setUser(userRepo.findOne(1L));
-        post.setCategories((List) categoryRepo.findAll());
+    public String create(@ModelAttribute Post post, @RequestParam(value="categories", required=false) List<Category> cats) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        post.setUser(userRepo.findOne(loggedInUser.getId()));
+        post.setCategories(cats);
         postRepo.save(post);
         return "redirect:/posts/" + post.getId();
     }
